@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign-up Form</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="side-bar">
+      <div class="logo-section">
+        <img src="./images/odin-lined.png" alt="The Odin Project logo">
+      </div>
+      <div class="attribution">
+        Photo by
+        <a href="https://unsplash.com/@haliewestphoto">Halie West</a> on
+        <a
+          href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral"
+          >Unsplash</a
+        >
+      </div>
+    </div>
+    <div class="main-bar">
+      <div class="form-intro">
+        <p>This is not a real online service! You know you need something like this in your life to help you realise your deepest dreams. Sign up <em>now</em> to get started.</p>
+        <p>You <em>know</em> you want to.</p>
+      </div>
+      <div class="container-form">
+        <form action="#" method="post">
+          <div class="form-main">
+            <h1>Let's do this!</h1>
+            <div class="form-row">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first-name">
+            </div>
+            <div class="form-row">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last-name">
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email">
+            </div>
+            <div class="form-row">
+              <label for="phone-number">Phone Number</label>
+              <input type="tel" id="phone-number" name="phone-number">
+            </div>
+            <div class="form-row">
+              <label for="pwd">Password</label>
+              <input type="password" id="pwd" name="pwd">
+            </div>
+            <div class="form-row">
+              <label for="pwd-check">Password</label>
+              <input type="password" id="pwd-check" name="pwd-check">
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit">Create Account</button>
+            <p>Already have an account? <a href="#">Log in</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
