@@ -57,19 +57,42 @@
             </div>
             <div class="form-row">
               <label for="pwd">Password</label>
-              <input type="password" id="pwd" name="pwd" />
+              <input type="password" id="pwd" name="pwd" class="error" />
+              <span id="wrong_pass_alert"></span>
             </div>
             <div class="form-row">
-              <label for="pwd-check">Password</label>
-              <input type="password" id="pwd-check" name="pwd-check" />
+              <label for="pwd-check">Confirm Password</label>
+              <input type="password" id="pwd-check" name="pwd-check" class="error" onkeyup="validate_password()" />
             </div>
+            
           </div>
           <div class="form-submit">
-            <button type="submit">Create Account</button>
+            <button type="submit" id="create">Create Account</button>
             <p>Already have an account? <a href="#">Log in</a></p>
           </div>
         </form>
       </div>
     </div>
+    <script>
+      function validate_password () {
+        let pwd = document.getElementById('pwd').value;
+        let pwd_check = document.getElementById('pwd-check').value;
+        if (pwd != pwd_check && pwd != '') {
+          document.getElementById('wrong_pass_alert').style.color = '#b92020';
+          document.getElementById('wrong_pass_alert').innerHTML = `<sup>*</sup>Passwords do not match.`;
+          document.getElementById('pwd').style.border = 'solid 2px #b92020'
+          document.getElementById('pwd-check').style.border = 'solid 2px #b92020'
+          document.getElementById('create').disabled = true;
+          document.getElementById('create').style.opacity = (0.4);
+        } else {
+          document.getElementById('wrong_pass_alert').style.color = '#596d48';
+          document.getElementById('wrong_pass_alert').innerHTML = `Passwords matched.`;
+          document.getElementById('pwd').style.border = 'solid 2px #596d48'
+          document.getElementById('pwd-check').style.border = 'solid 2px #596d48'
+          document.getElementById('create').disabled = false;
+          document.getElementById('create').style.opacity = (1);
+        }
+      }
+    </script>
   </body>
 </html>
