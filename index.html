@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign-up Form</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="./validation.js" defer></script>
   </head>
   <body>
     <div class="side-bar">
@@ -40,59 +41,60 @@
           <div class="form-main">
             <h1>Let's do this!</h1>
             <div class="form-row">
-              <label for="first-name">First Name</label>
-              <input type="text" id="first-name" name="first-name" />
+              <label for="first-name">First Name*</label>
+              <input type="text" id="first-name" name="first-name" required />
             </div>
             <div class="form-row">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last-name" />
+              <label for="last-name">Last Name*</label>
+              <input type="text" id="last-name" name="last-name" required />
             </div>
             <div class="form-row">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" />
+              <label for="email">Email*</label>
+              <input type="email" id="email" name="email" required />
             </div>
             <div class="form-row">
-              <label for="phone-number">Phone Number</label>
-              <input type="tel" id="phone-number" name="phone-number" />
+              <label for="mobile-number">Mobile Number (+61)*</label>
+              <input
+                type="tel"
+                id="mobile-number"
+                name="mobile-number"
+                pattern="[0-9]{4}[0-9]{3}[0-9]{3}"
+                title="The number should be 10 digits without any spaces in between, such as: 0491570159"
+                required
+              />
             </div>
             <div class="form-row">
-              <label for="pwd">Password</label>
-              <input type="password" id="pwd" name="pwd" class="error" />
+              <label for="pwd">Password*</label>
+              <input
+                type="password"
+                id="pwd"
+                name="pwd"
+                pattern="[a-zA-Z0-9]{8,}"
+                title="Must be at least 8 characters."
+                required
+              />
+              <p class="input-hint">Must be at least 8 characters.</p>
               <span id="wrong_pass_alert"></span>
             </div>
             <div class="form-row">
-              <label for="pwd-check">Confirm Password</label>
-              <input type="password" id="pwd-check" name="pwd-check" class="error" onkeyup="validate_password()" />
+              <label for="pwd-check">Confirm Password*</label>
+              <input
+                type="password"
+                id="pwd-check"
+                name="pwd-check"
+                required
+                onkeyup="validate_password()"
+              />
             </div>
-            
           </div>
           <div class="form-submit">
-            <button type="submit" id="create">Create Account</button>
+            <button type="submit" id="button-send" disabled>
+              Create Account
+            </button>
             <p>Already have an account? <a href="#">Log in</a></p>
           </div>
         </form>
       </div>
     </div>
-    <script>
-      function validate_password () {
-        let pwd = document.getElementById('pwd').value;
-        let pwd_check = document.getElementById('pwd-check').value;
-        if (pwd != pwd_check && pwd != '') {
-          document.getElementById('wrong_pass_alert').style.color = '#b92020';
-          document.getElementById('wrong_pass_alert').innerHTML = `<sup>*</sup>Passwords do not match.`;
-          document.getElementById('pwd').style.border = 'solid 2px #b92020'
-          document.getElementById('pwd-check').style.border = 'solid 2px #b92020'
-          document.getElementById('create').disabled = true;
-          document.getElementById('create').style.opacity = (0.4);
-        } else {
-          document.getElementById('wrong_pass_alert').style.color = '#596d48';
-          document.getElementById('wrong_pass_alert').innerHTML = `Passwords matched.`;
-          document.getElementById('pwd').style.border = 'solid 2px #596d48'
-          document.getElementById('pwd-check').style.border = 'solid 2px #596d48'
-          document.getElementById('create').disabled = false;
-          document.getElementById('create').style.opacity = (1);
-        }
-      }
-    </script>
   </body>
 </html>

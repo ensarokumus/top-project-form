@@ -80,6 +80,13 @@ body {
   color: rgba(0, 0, 0, 0.8);
 }
 
+.input-hint {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 2px;
+}
+
 .form-main {
   display: flex;
   flex-wrap: wrap;
@@ -113,6 +120,7 @@ input {
   height: 2rem;
   width: 17rem;
   padding-left: 0.5rem;
+  font-size: 1rem;
 }
 
 input:focus {
@@ -145,6 +153,20 @@ button {
   color: white;
   font-size: 1rem;
   font-weight: 700;
+}
+
+button:disabled {
+  opacity: 0.4;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.8;
+  scale: 1.1;
+  transition: 200ms;
+}
+
+button:active {
+  filter: brightness(80%);
 }
 
 @media only screen and (min-width: 800px) {
